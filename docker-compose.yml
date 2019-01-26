@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  mysqldb:
+    image: mysql:5.7
+    volumes:
+    - /var/lib/mysql
+    restart: always
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: invillia
+      MYSQL_USER: invillia
+      MYSQL_PASSWORD: invilli@
