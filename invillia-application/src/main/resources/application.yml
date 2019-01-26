@@ -1,4 +1,8 @@
+server:
+  contextPath: /invillia
 spring:
+  application:
+    name: Invillia Challange
   datasource:
     url: jdbc:mysql://localhost:3306/invillia
     username: invillia
