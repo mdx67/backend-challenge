@@ -5,11 +5,9 @@ services:
     image: mysql:5.7
     volumes:
     - /var/lib/mysql
+    - ./resources/docker-init-db.sql:/docker-entrypoint-initdb.d/docker-init-db.sql
     restart: always
     ports:
     - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: invillia
-      MYSQL_USER: invillia
-      MYSQL_PASSWORD: invilli@

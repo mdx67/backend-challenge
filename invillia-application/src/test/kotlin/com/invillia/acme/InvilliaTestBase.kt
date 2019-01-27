@@ -6,12 +6,16 @@ import org.junit.Rule
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.restdocs.JUnitRestDocumentation
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation
+import org.springframework.test.context.ActiveProfiles
+import org.springframework.test.context.transaction.TransactionConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.web.context.WebApplicationContext
 import java.io.IOException
 
+@TransactionConfiguration(defaultRollback = true)
+@ActiveProfiles(value = ["test"])
 abstract class InvilliaTestBase {
 
     companion object {
