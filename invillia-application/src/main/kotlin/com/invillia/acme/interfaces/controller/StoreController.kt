@@ -34,9 +34,9 @@ class StoreController(
         @PathVariable("id") id: String,
         @Valid @RequestBody request: UpdateStoreData
     ) {
-        LOG.info("Update Store name: ${request.name}.")
+        LOG.info("Update Store id: $id.")
 
-        storeService.update(request)
+        storeService.update(id, request)
     }
 
     override fun query(@PathVariable("id") id: String): CreatedStoreData {

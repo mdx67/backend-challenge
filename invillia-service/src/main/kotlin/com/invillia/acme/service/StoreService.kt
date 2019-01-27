@@ -25,20 +25,19 @@ class StoreService(
         return storeRepository.save(store).toCreatedStoreData()
     }
 
-    fun update(updateData: UpdateStoreData) {
-        val store = StoreEntity(
-            storeId = StoreId().id,
+    fun update(storeId: String, updateData: UpdateStoreData) {
+        val storeToUpdate = StoreEntity(
+            storeId = getById(storeId).storeId,
             name = updateData.name!!,
             address = updateData.address!!
         )
-
-        storeRepository.save(store)
+        storeRepository.save(storeToUpdate)
     }
 
     fun getById(id: String): CreatedStoreData {
         val store: StoreEntity? = storeRepository.findOne(id)
                 ?: throw InvilliaException.NotFoundException(id)
-        
+
         return store!!.toCreatedStoreData()
     }
 }

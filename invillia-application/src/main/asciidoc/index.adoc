@@ -35,3 +35,10 @@ use of HTTP status codes.
 == Create Store
 operation::create-store-success[snippets='http-request,request-fields,curl-request,http-response,response-fields']
 
+== Update Store
+operation::update-store-success[snippets='http-request,request-fields,curl-request,http-response']
+operation::not-found-store[snippets='http-request,request-fields,http-response']
+
+== Query Store
+operation::find-store-success[snippets='http-request,request-fields,curl-request,http-response,response-fields']
+
