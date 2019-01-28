@@ -7,6 +7,7 @@ import org.springframework.restdocs.payload.JsonFieldType
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.requestFields
 import org.springframework.restdocs.payload.PayloadDocumentation.responseFields
+import org.springframework.restdocs.payload.ResponseFieldsSnippet
 
 object RestDocsHelper {
 
@@ -52,4 +53,55 @@ object RestDocsHelper {
         )
     }
 
+    fun orderDocument(documentName: String): RestDocumentationResultHandler {
+        return MockMvcRestDocumentation.document(
+            documentName,
+            Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
+            Preprocessors.preprocessResponse(Preprocessors.prettyPrint()),
+            requestFields(
+                fieldWithPath("address").type(JsonFieldType.STRING).description("Order address. *"),
+                fieldWithPath("items[0].description").type(JsonFieldType.STRING).description("Item description."),
+                fieldWithPath("items[0].amount").type(JsonFieldType.NUMBER).description("Item price. *"),
+                fieldWithPath("items[0].quantity").type(JsonFieldType.NUMBER).description("Item quantity. *")
+            ),
+            buildResponseOrder()
+        )
+    }
+
+    fun orderItemDocument(documentName: String): RestDocumentationResultHandler {
+        return MockMvcRestDocumentation.document(
+            documentName,
+            Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
+            Preprocessors.preprocessResponse(Preprocessors.prettyPrint()),
+            requestFields(
+                fieldWithPath("description").type(JsonFieldType.STRING).description("Item description."),
+                fieldWithPath("amount").type(JsonFieldType.NUMBER).description("Item price. *"),
+                fieldWithPath("quantity").type(JsonFieldType.NUMBER).description("Item quantity. *")
+            ),
+            buildResponseOrder()
+        )
+    }
+
+    fun orderResponseDocument(documentName: String): RestDocumentationResultHandler {
+        return MockMvcRestDocumentation.document(
+            documentName,
+            Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
+            Preprocessors.preprocessResponse(Preprocessors.prettyPrint()),
+            buildResponseOrder()
+        )
+    }
+
+    private fun buildResponseOrder(): ResponseFieldsSnippet? {
+        return responseFields(
+            fieldWithPath("orderId").type(JsonFieldType.STRING).description("Id of saved Order."),
+            fieldWithPath("address").type(JsonFieldType.STRING).description("Order address."),
+            fieldWithPath("confirmationDate").type(JsonFieldType.STRING).description("Confirmation date of order payment."),
+            fieldWithPath("status").type(JsonFieldType.STRING).description("Order status."),
+            fieldWithPath("items[0].orderItemId").type(JsonFieldType.STRING).description("Order item id."),
+            fieldWithPath("items[0].description").type(JsonFieldType.STRING).description("Item description."),
+            fieldWithPath("items[0].amount").type(JsonFieldType.NUMBER).description("Item price."),
+            fieldWithPath("items[0].quantity").type(JsonFieldType.NUMBER).description("Item quantity."),
+            fieldWithPath("paymentDate").type(JsonFieldType.STRING).description("Payment date of order.")
+        )
+    }
 }

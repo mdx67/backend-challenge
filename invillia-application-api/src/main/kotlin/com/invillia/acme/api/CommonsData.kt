@@ -16,32 +16,49 @@ data class UpdateStoreData(
     @field:[NotEmpty] val address: String?
 )
 
+data class CreateOrderData(
+    @field:[NotEmpty] val address: String?,
+    @field:[Valid] val items: List<CreateOrderItemData>?
+)
+
+data class CreateOrderItemData(
+    val description: String?,
+    @field:[NotNull Positive] val amount: Int?,
+    @field:[NotNull] val quantity: Int?
+)
+
+data class CreatePaymentData(
+    @field:[NotNull] val orderId: String?,
+    val description: String?,
+    @field:[NotNull Positive] val amount: Int?,
+    @field:[NotNull] val quantity: Int?
+)
+
 data class CreatedStoreData(
     val storeId: String,
     val name: String?,
     val address: String?
 )
 
-data class OrderData(
-    @field:[NotEmpty] val address: String?,
-    @field:[NotEmpty] val confirmationDate: LocalDateTime?,
-    @field:[NotEmpty] val status: String?
+data class CreatedOrderData(
+    val orderId: String,
+    val address: String?,
+    val confirmationDate: LocalDateTime?,
+    val status: String?,
+    val items: List<CreatedOrderItemData>?,
+    val paymentDate: LocalDateTime? = null
 )
 
-data class OrderItemData(
+data class CreatedOrderItemData(
+    val orderItemId: String,
     val description: String?,
-    @field:[Valid NotNull] val price: PriceData?,
-    @field:[NotNull] val quantity: Int?
+    val amount: Int?,
+    val quantity: Int?
 )
 
 data class PaymentData(
-    val description: String?,
-    @field:[Valid NotNull] val price: PriceData?,
-    @field:[NotNull] val quantity: Int?
-)
-
-data class PriceData(
-    @field:[NotEmpty] val currency: String?,
-    @field:[NotNull Positive] val amount: Int?,
-    @field:[NotNull] val scale: Int?
+    val paymentId: String,
+    val status: String?,
+    val creditCardNumber: Int?,
+    val confirmationDate: LocalDateTime?
 )
