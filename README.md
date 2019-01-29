@@ -2,8 +2,8 @@
 
 ### Features:
    - **Store**: It's possible to create, update and find a store.
-   - **Order**: *Not implemented yeat*
-   - **Payment**: *Not implemented yeat*
+   - **Order**: It's possible to create, add item, refund and find an order.
+   - **Payment**: *Not implemented yet*
 
 ### Submodules
 Invillia Challange has these submodules:
@@ -12,6 +12,8 @@ Invillia Challange has these submodules:
  - **invillia-service**: Core of business rules and validations.
  - **invillia-domain**: Store data and has common domain.
  - **invillia-infrastructure**: Common base classes, utils, exceptions and more.
+ - **invillia-integration**: Rest client to integrate with other modules. *Not implemented yet*
+ - **invillia-job**: Responsible to run asynchronous payments and refund. *Not implemented yet*
 
 ### Technologies
  - Maven (build)
@@ -21,6 +23,7 @@ Invillia Challange has these submodules:
  - Spring Boot (framework)
  - Undertow (embedded application server)
  - Mysql (database)
+ - Flyway (db evolutions)
  
 ### Functional Docs 
 - [APIS RESt docs] After build the project, find restdocs at /invillia-application/target/generate-docs
@@ -31,11 +34,9 @@ Invillia Challange has these submodules:
  - java -jar invillia-application/target/invillia-application.jar
 
 ### Future features
- - Create and management an Order.
  - Integration with "invillia-gateway-connector" to perform payments operations.
  - Payments with job to refound if not confirmed.
  - Asynchronous payment for recurrence.
- - Default error message.
  - Spring secutiry to perform operations.
 
 
