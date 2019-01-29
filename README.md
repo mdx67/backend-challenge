@@ -3,7 +3,7 @@
 ### Features:
    - **Store**: It's possible to create, update and find a store.
    - **Order**: It's possible to create, add item, refund and find an order.
-   - **Payment**: *Not implemented yeat*
+   - **Payment**: *Not implemented yet*
 
 ### Submodules
 Invillia Challange has these submodules:
@@ -12,8 +12,8 @@ Invillia Challange has these submodules:
  - **invillia-service**: Core of business rules and validations.
  - **invillia-domain**: Store data and has common domain.
  - **invillia-infrastructure**: Common base classes, utils, exceptions and more.
- - **invillia-integration**: Rest client to integrate with other modules. *Not implemented yeat*
- - **invillia-job**: Responsible to run asynchronous payments and refund. *Not implemented yeat*
+ - **invillia-integration**: Rest client to integrate with other modules. *Not implemented yet*
+ - **invillia-job**: Responsible to run asynchronous payments and refund. *Not implemented yet*
 
 ### Technologies
  - Maven (build)
