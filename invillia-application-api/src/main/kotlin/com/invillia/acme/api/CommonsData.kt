@@ -45,8 +45,7 @@ data class CreatedOrderData(
     val address: String?,
     val confirmationDate: LocalDateTime?,
     val status: String?,
-    val items: List<CreatedOrderItemData>?,
-    val paymentDate: LocalDateTime? = null
+    val items: List<CreatedOrderItemData>? = null
 )
 
 data class CreatedOrderItemData(

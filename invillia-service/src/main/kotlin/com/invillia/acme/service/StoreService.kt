@@ -4,7 +4,7 @@ import com.invillia.acme.api.CreateStoreData
 import com.invillia.acme.api.CreatedStoreData
 import com.invillia.acme.api.UpdateStoreData
 import com.invillia.acme.domain.StoreId
-import com.invillia.acme.domain.StoreRepository
+import com.invillia.acme.domain.repository.StoreRepository
 import com.invillia.acme.domain.entity.StoreEntity
 import com.invillia.acme.infra.InvilliaException
 import com.invillia.acme.mapper.toCreatedStoreData

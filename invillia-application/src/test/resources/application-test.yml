@@ -3,4 +3,5 @@ spring:
     url: jdbc:mysql://localhost:3306/invillia_test
     username: invillia
     password: invilli@
-
+flyway:
+  schemas: invillia_test

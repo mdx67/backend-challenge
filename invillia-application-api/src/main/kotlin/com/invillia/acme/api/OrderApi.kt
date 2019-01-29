@@ -40,9 +40,10 @@ interface OrderApi {
         @PathVariable("id") id: String
     ): CreatedOrderData
 
-    @DeleteMapping(value = ["/item/{itemId}"], produces = [MediaType.APPLICATION_JSON_VALUE])
+    @DeleteMapping(value = ["/{id}/item/{itemId}"], produces = [MediaType.APPLICATION_JSON_VALUE])
     @ResponseStatus(HttpStatus.ACCEPTED)
     fun refundItem(
+        @PathVariable("id") orderId: String,
         @PathVariable("itemId") itemId: String
     ): CreatedOrderData
 

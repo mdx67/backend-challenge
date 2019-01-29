@@ -11,8 +11,8 @@ spring:
   jpa:
     open-in-view: false
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    hibernate:
-      ddl-auto: update
+#    hibernate:
+#      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -24,3 +24,11 @@ spring:
     time-zone: UTC
     default-property-inclusion: non_null
     date-format: yyyy-MM-dd'T'HH:mm:ssZ
+flyway:
+  locations: classpath:/db/migration
+  check-location: true
+  sqlMigrationPrefix: V
+  sqlMigrationSeparator: __
+  sqlMigrationSuffix: .sql
+  validateOnMigrate: true
+  schemas: invillia

@@ -86,8 +86,7 @@ object RestDocsHelper {
         return MockMvcRestDocumentation.document(
             documentName,
             Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
-            Preprocessors.preprocessResponse(Preprocessors.prettyPrint()),
-            buildResponseOrder()
+            Preprocessors.preprocessResponse(Preprocessors.prettyPrint())
         )
     }
 
@@ -95,13 +94,12 @@ object RestDocsHelper {
         return responseFields(
             fieldWithPath("orderId").type(JsonFieldType.STRING).description("Id of saved Order."),
             fieldWithPath("address").type(JsonFieldType.STRING).description("Order address."),
-            fieldWithPath("confirmationDate").type(JsonFieldType.STRING).description("Confirmation date of order payment."),
+            fieldWithPath("confirmationDate").optional().type(JsonFieldType.STRING).description("Confirmation date of order payment."),
             fieldWithPath("status").type(JsonFieldType.STRING).description("Order status."),
-            fieldWithPath("items[0].orderItemId").type(JsonFieldType.STRING).description("Order item id."),
-            fieldWithPath("items[0].description").type(JsonFieldType.STRING).description("Item description."),
-            fieldWithPath("items[0].amount").type(JsonFieldType.NUMBER).description("Item price."),
-            fieldWithPath("items[0].quantity").type(JsonFieldType.NUMBER).description("Item quantity."),
-            fieldWithPath("paymentDate").type(JsonFieldType.STRING).description("Payment date of order.")
+            fieldWithPath("items[*].orderItemId").optional().type(JsonFieldType.STRING).description("Order item id."),
+            fieldWithPath("items[*].description").optional().type(JsonFieldType.STRING).description("Item description."),
+            fieldWithPath("items[*].amount").optional().type(JsonFieldType.NUMBER).description("Item price."),
+            fieldWithPath("items[*].quantity").optional().type(JsonFieldType.NUMBER).description("Item quantity.")
         )
     }
 }

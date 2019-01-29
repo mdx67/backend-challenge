@@ -2,7 +2,7 @@ package com.invillia.acme.interfaces.controller
 
 import com.invillia.acme.InvilliaTestBase
 import com.invillia.acme.RestDocsHelper
-import com.invillia.acme.domain.StoreRepository
+import com.invillia.acme.domain.repository.StoreRepository
 import com.invillia.acme.domain.entity.StoreEntity
 import org.junit.Before
 import org.junit.Test

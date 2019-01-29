@@ -1,7 +1,7 @@
 package com.invillia.acme.service
 
 import com.invillia.acme.api.CreateStoreData
-import com.invillia.acme.domain.StoreRepository
+import com.invillia.acme.domain.repository.StoreRepository
 import com.invillia.acme.domain.entity.StoreEntity
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.mock
