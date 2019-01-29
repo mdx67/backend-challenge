@@ -1,7 +1,10 @@
 package com.invillia.acme.infra
 
+import com.invillia.acme.infra.error.ErrorCode
+
 sealed class InvilliaException(
     val status: Int,
+    open val errorCode: ErrorCode? = null,
     open val errorMessage: String? = null,
     open val id: String? = null
 ) : RuntimeException() {
@@ -12,13 +15,19 @@ sealed class InvilliaException(
         const val NOT_FOUND_STATUS = 404
     }
 
-    class BusinessException(override val errorMessage: String? = null) :
-        InvilliaException(BUSINESS_STATUS, errorMessage)
+    class BusinessException(
+        override val errorCode: ErrorCode? = null,
+        override val errorMessage: String? = null
+    ) : InvilliaException(BUSINESS_STATUS, errorCode, errorMessage)
 
-    class ValidationException(override val errorMessage: String? = null) :
-        InvilliaException(VALIDATION_STATUS, errorMessage)
+    class ValidationException(
+        override val errorCode: ErrorCode? = null,
+        override val errorMessage: String? = null
+    ) : InvilliaException(VALIDATION_STATUS, errorCode, errorMessage)
 
-    class NotFoundException(override val id: String) :
-        InvilliaException(NOT_FOUND_STATUS, id)
+    class NotFoundException(
+        override val errorCode: ErrorCode? = null,
+        override val id: String
+    ) : InvilliaException(NOT_FOUND_STATUS, errorCode, id)
 
 }

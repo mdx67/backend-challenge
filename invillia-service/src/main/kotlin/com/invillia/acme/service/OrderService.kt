@@ -10,6 +10,7 @@ import com.invillia.acme.domain.entity.OrderItemEntity
 import com.invillia.acme.domain.entity.OrderStatus
 import com.invillia.acme.domain.repository.OrderRepository
 import com.invillia.acme.infra.InvilliaException
+import com.invillia.acme.infra.error.InvilliaErrorCode
 import com.invillia.acme.mapper.toCreatedOrderData
 import com.invillia.acme.validation.OrderValidations
 import org.springframework.stereotype.Service
@@ -93,6 +94,6 @@ class OrderService(
 
     private fun getEntityById(id: String): OrderEntity {
         return orderRepository.findOne(id)
-                ?: throw InvilliaException.NotFoundException(id)
+                ?: throw InvilliaException.NotFoundException(InvilliaErrorCode.NOT_FOUND_ERROR, id)
     }
 }

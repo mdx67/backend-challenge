@@ -7,6 +7,7 @@ import com.invillia.acme.domain.StoreId
 import com.invillia.acme.domain.repository.StoreRepository
 import com.invillia.acme.domain.entity.StoreEntity
 import com.invillia.acme.infra.InvilliaException
+import com.invillia.acme.infra.error.InvilliaErrorCode
 import com.invillia.acme.mapper.toCreatedStoreData
 import org.springframework.stereotype.Service
 
@@ -36,7 +37,7 @@ class StoreService(
 
     fun getById(id: String): CreatedStoreData {
         val store: StoreEntity? = storeRepository.findOne(id)
-                ?: throw InvilliaException.NotFoundException(id)
+                ?: throw InvilliaException.NotFoundException(InvilliaErrorCode.NOT_FOUND_ERROR, id)
 
         return store!!.toCreatedStoreData()
     }
