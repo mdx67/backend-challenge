@@ -11,7 +11,7 @@ interface PaymentApi {
 
     @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE], produces = [MediaType.APPLICATION_JSON_VALUE])
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(
+    fun perform(
         @Valid @RequestBody request: CreatePaymentData
     ): PaymentData
 }

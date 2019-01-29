@@ -102,4 +102,23 @@ object RestDocsHelper {
             fieldWithPath("items[*].quantity").optional().type(JsonFieldType.NUMBER).description("Item quantity.")
         )
     }
+
+    fun paymentDocument(documentName: String): RestDocumentationResultHandler {
+        return MockMvcRestDocumentation.document(
+            documentName,
+            Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
+            Preprocessors.preprocessResponse(Preprocessors.prettyPrint()),
+            requestFields(
+                fieldWithPath("orderId").type(JsonFieldType.STRING).description("Order id to perform payment. *"),
+                fieldWithPath("creditCardNumber").type(JsonFieldType.STRING).description("Credit card number. *")
+            ),
+            responseFields(
+                fieldWithPath("paymentId").type(JsonFieldType.STRING).description("Payment id."),
+                fieldWithPath("orderId").type(JsonFieldType.STRING).description("Order id."),
+                fieldWithPath("status").type(JsonFieldType.STRING).description("Payment status"),
+                fieldWithPath("creditCardNumber").type(JsonFieldType.STRING).description("Credit card number."),
+                fieldWithPath("paymentDate").type(JsonFieldType.STRING).description("Payment date.")
+            )
+        )
+    }
 }

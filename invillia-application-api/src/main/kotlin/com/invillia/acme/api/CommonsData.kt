@@ -29,9 +29,7 @@ data class CreateOrderItemData(
 
 data class CreatePaymentData(
     @field:[NotNull] val orderId: String?,
-    val description: String?,
-    @field:[NotNull Positive] val amount: Int?,
-    @field:[NotNull] val quantity: Int?
+    @field:[NotNull] val creditCardNumber: String?
 )
 
 data class CreatedStoreData(
@@ -57,7 +55,8 @@ data class CreatedOrderItemData(
 
 data class PaymentData(
     val paymentId: String,
+    val orderId: String,
     val status: String?,
-    val creditCardNumber: Int?,
-    val confirmationDate: LocalDateTime?
+    val creditCardNumber: String?,
+    val paymentDate: LocalDateTime?
 )
