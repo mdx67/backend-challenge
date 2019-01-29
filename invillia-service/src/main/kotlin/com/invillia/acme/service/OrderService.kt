@@ -79,7 +79,7 @@ class OrderService(
         val order: OrderEntity = getEntityById(orderId)
 
         val newOrder = OrderItemEntity(
-            orderItemId = OrderItemId().id, description = orderItem.description,
+            orderItemId = OrderItemId().id, order = order, description = orderItem.description,
             amount = orderItem.amount!!, quantity = orderItem.quantity!!
         )
 
