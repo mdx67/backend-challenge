@@ -40,5 +40,29 @@ operation::update-store-success[snippets='http-request,request-fields,curl-reque
 operation::not-found-store[snippets='http-request,request-fields,http-response']
 
 == Query Store
-operation::find-store-success[snippets='http-request,request-fields,curl-request,http-response,response-fields']
+operation::find-store-success[snippets='http-request,curl-request,http-response,response-fields']
 
+= Order Resources
+
+== Create Order
+operation::create-order-success[snippets='http-request,request-fields,curl-request,http-response,response-fields']
+
+== Get Order
+operation::find-order-success[snippets='http-request,curl-request,http-response']
+
+== Add Order item
+operation::add-order-item-success[snippets='http-request,request-fields,curl-request,http-response']
+
+== Refund Order
+operation::refund-success[snippets='http-request,curl-request,http-response']
+
+== Refund Order item
+operation::refund-item-success[snippets='http-request,curl-request,http-response']
+
+= Payment Resources
+
+== Perform payment synchronous
+operation::create-payment-normal-success[snippets='http-request,request-fields,curl-request,http-response,response-fields']
+
+== Perform payment asynchronous
+operation::create-payment-scheduled-success[snippets='http-request,request-fields,curl-request,http-response,response-fields']

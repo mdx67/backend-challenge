@@ -3,7 +3,9 @@ package com.invillia.acme.mapper
 import com.invillia.acme.api.CreatedOrderData
 import com.invillia.acme.api.CreatedOrderItemData
 import com.invillia.acme.api.CreatedStoreData
+import com.invillia.acme.api.PaymentData
 import com.invillia.acme.domain.entity.OrderEntity
+import com.invillia.acme.domain.entity.PaymentEntity
 import com.invillia.acme.domain.entity.StoreEntity
 
 fun StoreEntity.toCreatedStoreData(): CreatedStoreData {
@@ -32,5 +34,16 @@ fun OrderEntity.toCreatedOrderData(): CreatedOrderData {
         confirmationDate = this.confirmationDate,
         status = this.status.name,
         items = items
+    )
+}
+
+
+fun PaymentEntity.toPaymentData(): PaymentData {
+    return PaymentData(
+        paymentId = this.paymentId,
+        orderId = this.order!!.orderId,
+        creditCardNumber = this.creditCardNumber,
+        status = this.status.name,
+        paymentDate = this.paymentDate
     )
 }

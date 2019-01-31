@@ -14,5 +14,6 @@ object InvilliaErrorCode {
     val INTEGRATION_ERROR: ErrorCode = ErrorCode("INVILLIA-004", "integration.error")
     val NOT_FOUND_ERROR: ErrorCode = ErrorCode("INVILLIA-005", "not.found.error")
     val NOT_REFUND_ALLOWED: ErrorCode = ErrorCode("INVILLIA-006", "not.refund.allowed")
+    val ORDER_NOT_INFORMED: ErrorCode = ErrorCode("INVILLIA-007", "order.not.informed")
 
 }

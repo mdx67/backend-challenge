@@ -29,7 +29,8 @@ data class CreateOrderItemData(
 
 data class CreatePaymentData(
     @field:[NotNull] val orderId: String?,
-    @field:[NotNull] val creditCardNumber: String?
+    @field:[NotNull] val creditCardNumber: String?,
+    val async: Boolean = false
 )
 
 data class CreatedStoreData(

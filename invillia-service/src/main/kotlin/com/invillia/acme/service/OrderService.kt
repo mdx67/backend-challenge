@@ -92,7 +92,7 @@ class OrderService(
         return getEntityById(id).toCreatedOrderData()
     }
 
-    private fun getEntityById(id: String): OrderEntity {
+    fun getEntityById(id: String): OrderEntity {
         return orderRepository.findOne(id)
                 ?: throw InvilliaException.NotFoundException(InvilliaErrorCode.NOT_FOUND_ERROR, id)
     }

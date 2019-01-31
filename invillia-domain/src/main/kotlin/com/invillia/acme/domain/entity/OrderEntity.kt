@@ -26,8 +26,11 @@ data class OrderEntity(
     @Enumerated(EnumType.STRING)
     var status: OrderStatus = OrderStatus.PENDING,
     @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany(mappedBy = "order", cascade = [(CascadeType.ALL)], orphanRemoval = true)
-    var orderItems: MutableList<OrderItemEntity>? = null
+    @OneToMany(mappedBy = "order", cascade = [(CascadeType.ALL)])
+    var orderItems: MutableList<OrderItemEntity>? = null,
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "order", cascade = [(CascadeType.ALL)])
+    private val payments: List<PaymentEntity>? = null
 )
 
 @Entity(name = "order_item")
