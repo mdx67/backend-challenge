@@ -17,6 +17,7 @@
         <module>invillia-service</module>
         <module>invillia-domain</module>
         <module>invillia-infrastructure</module>
+        <module>invillia-job</module>
     </modules>
 
     <properties>
@@ -62,6 +63,12 @@
                 <artifactId>invillia-infrastructure</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>invillia-job</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
 
             <!--SPRING-->
             <dependency>
