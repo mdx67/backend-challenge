@@ -29,4 +29,8 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <finalName>invillia-job-application</finalName>
+    </build>
+
 </project>
